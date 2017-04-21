@@ -1,17 +1,21 @@
 <?php
 
-namespace RemiSan\Ouroboros;
+namespace RemiSan\Ouroboros\Waiter;
 
 use Assert\AssertionFailedException;
 use LogicException;
+use RemiSan\Ouroboros\ConditionWaiter;
 use Symfony\Component\Process\Exception\RuntimeException;
 
-interface ConditionWaiter
+class NullConditionWaiter implements ConditionWaiter
 {
     /**
      * Init the waiter.
      */
-    public function init();
+    public function init()
+    {
+        // no-op
+    }
 
     /**
      * Wait until task completion defined by list of conditions.
@@ -23,5 +27,8 @@ interface ConditionWaiter
      * @throws LogicException
      * @throws AssertionFailedException
      */
-    public function wait(array $conditions);
+    public function wait(array $conditions)
+    {
+        // no-op
+    }
 }
